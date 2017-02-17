@@ -12,6 +12,7 @@ console "logInfo" {}
 tcp "remoteTCP" {
   hosts = ["localhost:2120"]
   timeout_sec = 5
+  buffer = 1024
   only {
     exist = "message"
   }

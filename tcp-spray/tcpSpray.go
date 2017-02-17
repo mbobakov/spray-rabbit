@@ -16,7 +16,6 @@ import (
 
 const (
 	delimiter       = '\n'
-	sendBufferSize  = 1024
 	tcpsprayConfKey = "tcp"
 )
 
@@ -31,6 +30,7 @@ type tcpspray struct {
 	Hosts      []string `hcl:"hosts"`
 	Timeout    int      `hcl:"timeout_sec"`
 	Only       *only    `hcl:"only"`
+	Buffer     int      `hcl:"buffer"`
 	sendBuffer chan []byte
 	logger     spray.Logger
 	pool       chan *connector
@@ -57,7 +57,7 @@ func (o *out) NewWithConfig(ctx context.Context, conf ast.Node, l spray.Logger) 
 		return nil, errors.Wrap(err, "tcp-spray configuration failed")
 	}
 	t.logger.Infof("Starting tcp-spray")
-	t.sendBuffer = make(chan []byte, len(t.Hosts)*sendBufferSize)
+	t.sendBuffer = make(chan []byte, t.Buffer)
 	t.pool = make(chan *connector, len(t.Hosts))
 	t.badConns = make(chan *connector, len(t.Hosts))
 	for _, s := range t.Hosts {
@@ -82,6 +82,9 @@ func (t *tcpspray) validate() error {
 	}
 	if t.Timeout <= 0 {
 		return errors.New("tcp.timeout_sec must be positive integer")
+	}
+	if t.Buffer <= 0 {
+		return errors.New("tcp.buffer must be positive integer")
 	}
 	return nil
 }

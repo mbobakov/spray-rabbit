@@ -1,0 +1,25 @@
+{
+    "dependencies": {
+        "github.com/buger/jsonparser": {
+            "branch": "master"
+        },
+        "github.com/go-ozzo/ozzo-validation": {
+            "branch": "master"
+        },
+        "github.com/hashicorp/hcl": {
+            "branch": "master"
+        },
+        "github.com/pkg/errors": {
+            "branch": "master"
+        },
+        "github.com/sirupsen/logrus": {
+            "branch": "master"
+        },
+        "github.com/streadway/amqp": {
+            "branch": "master"
+        },
+        "golang.org/x/sys": {
+            "branch": "master"
+        }
+    }
+}

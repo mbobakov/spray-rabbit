@@ -1,0 +1,54 @@
+{
+    "memo": "44741f98c2ad2bc33dfe0f8072495ed73c49e7d7f6d3d5b191b4643127af72c0",
+    "projects": [
+        {
+            "name": "github.com/buger/jsonparser",
+            "branch": "master",
+            "revision": "6bd16707875b997f7a60327f888a28a3d28cf8c2",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/hashicorp/hcl",
+            "branch": "master",
+            "revision": "372e8ddaa16fd67e371e9323807d056b799360af",
+            "packages": [
+                ".",
+                "hcl/ast"
+            ]
+        },
+        {
+            "name": "github.com/pkg/errors",
+            "branch": "master",
+            "revision": "248dadf4e9068a0b3e79f02ed0a610d935de5302",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/sirupsen/logrus",
+            "branch": "master",
+            "revision": "7f4b1adc791766938c29457bed0703fb9134421a",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/streadway/amqp",
+            "branch": "master",
+            "revision": "d75c3a341ff43309ad0cb69ac8bdbd1d8772775f",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "golang.org/x/sys",
+            "branch": "master",
+            "revision": "e24f485414aeafb646f6fca458b0bf869c0880a1",
+            "packages": [
+                "unix"
+            ]
+        }
+    ]
+}

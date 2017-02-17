@@ -3,6 +3,7 @@ package tcpspray
 import (
 	"bytes"
 	"context"
+	"time"
 
 	"github.com/buger/jsonparser"
 )
@@ -51,6 +52,7 @@ func (t *tcpspray) send(ctx context.Context) {
 			return
 		case msg := <-t.sendBuffer:
 			conn := <-t.pool
+			conn.conn.SetDeadline(time.Now().Add(time.Duration(t.Timeout) * time.Second))
 			_, err := conn.conn.Write(msg)
 			if err != nil {
 				t.logger.Errorf("Fail to write data into socket '%s' . Err '%s'", conn.target, err)

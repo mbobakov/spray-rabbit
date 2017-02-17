@@ -27,10 +27,11 @@ func init() {
 }
 
 type tcpspray struct {
-	Hosts      []string `hcl:"hosts"`
-	Timeout    int      `hcl:"timeout_sec"`
-	Only       *only    `hcl:"only"`
-	Buffer     int      `hcl:"buffer"`
+	Hosts   []string `hcl:"hosts"`
+	Timeout int      `hcl:"timeout_sec"`
+	Only    *only    `hcl:"only"`
+	Buffer  int      `hcl:"buffer"`
+
 	sendBuffer chan []byte
 	logger     spray.Logger
 	pool       chan *connector

@@ -23,7 +23,7 @@ func (r *sprayRegistry) initSprays(ctx context.Context, conf *ast.ObjectList) er
 				sl := l.WithField("type", stype).WithField("name", name)
 				spray, err := instance.NewWithConfig(ctx, i.Val, sl)
 				if err != nil {
-					sl.Errorf("Fail to initialize")
+					sl.Errorf("Fail to initialize. Err: '%s'", err)
 					continue
 				}
 				err = r.add(name, spray)
